@@ -1,0 +1,311 @@
+<?php
+
+/**
+* Inheritance: no
+* Variants: no
+
+
+Fields Summary:
+- name [input]
+- tokenSettings [fieldcollections]
+*/
+
+
+return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
+   'id' => 'EF_OSVS',
+   'name' => 'OnlineShopVoucherSeries',
+   'description' => '',
+   'creationDate' => 0,
+   'modificationDate' => 1632848468,
+   'userOwner' => 0,
+   'userModification' => 2,
+   'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractVoucherSeries',
+   'implementsInterfaces' => '',
+   'listingParentClass' => '',
+   'useTraits' => '',
+   'listingUseTraits' => '',
+   'encryption' => false,
+   'encryptedTables' => 
+  array (
+  ),
+   'allowInherit' => false,
+   'allowVariants' => false,
+   'showVariants' => false,
+   'fieldDefinitions' => 
+  array (
+  ),
+   'layoutDefinitions' => 
+  Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+     'fieldtype' => 'panel',
+     'layout' => NULL,
+     'border' => false,
+     'name' => 'pimcore_root',
+     'type' => NULL,
+     'region' => NULL,
+     'title' => NULL,
+     'width' => 0,
+     'height' => 0,
+     'collapsible' => false,
+     'collapsed' => false,
+     'bodyStyle' => NULL,
+     'datatype' => 'layout',
+     'permissions' => NULL,
+     'childs' => 
+    array (
+      0 => 
+      Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+         'fieldtype' => 'panel',
+         'layout' => NULL,
+         'border' => false,
+         'name' => 'Layout',
+         'type' => NULL,
+         'region' => NULL,
+         'title' => '',
+         'width' => NULL,
+         'height' => NULL,
+         'collapsible' => false,
+         'collapsed' => false,
+         'bodyStyle' => '',
+         'datatype' => 'layout',
+         'permissions' => NULL,
+         'childs' => 
+        array (
+          0 => 
+          Pimcore\Model\DataObject\ClassDefinition\Layout\Text::__set_state(array(
+             'fieldtype' => 'text',
+             'html' => '<b>VoucherSeries </b>to set up valid voucher tokens.&nbsp;<div>- Name: Specify a name for this voucher series. Just for finding it again ;-)&nbsp;</div><div>-&nbsp;Token Settings: Specify a token calculation type and define specific settings for token generation.&nbsp;</div><div>Actual tokens are available in additional tab \'Voucher Service\'&nbsp;</div>',
+             'renderingClass' => NULL,
+             'renderingData' => NULL,
+             'border' => false,
+             'name' => 'Layout',
+             'type' => NULL,
+             'region' => NULL,
+             'title' => '',
+             'width' => NULL,
+             'height' => NULL,
+             'collapsible' => false,
+             'collapsed' => false,
+             'bodyStyle' => 'padding: 10px; background-color: #d9edf7; border-color: #bce8f1 !important; color: #31708f;',
+             'datatype' => 'layout',
+             'permissions' => NULL,
+             'childs' => 
+            array (
+            ),
+             'locked' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+          )),
+          1 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+             'fieldtype' => 'input',
+             'width' => 400,
+             'defaultValue' => NULL,
+             'columnLength' => 255,
+             'regex' => '',
+             'unique' => false,
+             'showCharCount' => false,
+             'name' => 'name',
+             'title' => 'Name',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'datatype' => 'data',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => true,
+             'visibleSearch' => true,
+             'forbiddenNames' => 
+            array (
+              0 => 'id',
+              1 => 'key',
+              2 => 'path',
+              3 => 'type',
+              4 => 'index',
+              5 => 'classname',
+              6 => 'creationdate',
+              7 => 'userowner',
+              8 => 'value',
+              9 => 'class',
+              10 => 'list',
+              11 => 'fullpath',
+              12 => 'childs',
+              13 => 'values',
+              14 => 'cachetag',
+              15 => 'cachetags',
+              16 => 'parent',
+              17 => 'published',
+              18 => 'valuefromparent',
+              19 => 'userpermissions',
+              20 => 'dependencies',
+              21 => 'modificationdate',
+              22 => 'usermodification',
+              23 => 'byid',
+              24 => 'bypath',
+              25 => 'data',
+              26 => 'versions',
+              27 => 'properties',
+              28 => 'permissions',
+              29 => 'permissionsforuser',
+              30 => 'childamount',
+              31 => 'apipluginbroker',
+              32 => 'resource',
+              33 => 'parentClass',
+              34 => 'definition',
+              35 => 'locked',
+              36 => 'language',
+              37 => 'omitmandatorycheck',
+              38 => 'idpath',
+              39 => 'object',
+              40 => 'fieldname',
+              41 => 'property',
+              42 => 'parentid',
+              43 => 'children',
+              44 => 'scheduledtasks',
+            ),
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'defaultValueGenerator' => '',
+          )),
+          2 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Fieldcollections::__set_state(array(
+             'fieldtype' => 'fieldcollections',
+             'allowedTypes' => 
+            array (
+              0 => 'VoucherTokenTypePattern',
+              1 => 'VoucherTokenTypeSingle',
+            ),
+             'lazyLoading' => false,
+             'maxItems' => 1,
+             'disallowAddRemove' => false,
+             'disallowReorder' => true,
+             'collapsed' => false,
+             'collapsible' => false,
+             'border' => false,
+             'name' => 'tokenSettings',
+             'title' => 'Token Settings',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'datatype' => 'data',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'forbiddenNames' => 
+            array (
+              0 => 'id',
+              1 => 'key',
+              2 => 'path',
+              3 => 'type',
+              4 => 'index',
+              5 => 'classname',
+              6 => 'creationdate',
+              7 => 'userowner',
+              8 => 'value',
+              9 => 'class',
+              10 => 'list',
+              11 => 'fullpath',
+              12 => 'childs',
+              13 => 'values',
+              14 => 'cachetag',
+              15 => 'cachetags',
+              16 => 'parent',
+              17 => 'published',
+              18 => 'valuefromparent',
+              19 => 'userpermissions',
+              20 => 'dependencies',
+              21 => 'modificationdate',
+              22 => 'usermodification',
+              23 => 'byid',
+              24 => 'bypath',
+              25 => 'data',
+              26 => 'versions',
+              27 => 'properties',
+              28 => 'permissions',
+              29 => 'permissionsforuser',
+              30 => 'childamount',
+              31 => 'apipluginbroker',
+              32 => 'resource',
+              33 => 'parentClass',
+              34 => 'definition',
+              35 => 'locked',
+              36 => 'language',
+              37 => 'omitmandatorycheck',
+              38 => 'idpath',
+              39 => 'object',
+              40 => 'fieldname',
+              41 => 'property',
+              42 => 'parentid',
+              43 => 'children',
+              44 => 'scheduledtasks',
+            ),
+             'blockedVarsForExport' => 
+            array (
+            ),
+          )),
+        ),
+         'locked' => false,
+         'blockedVarsForExport' => 
+        array (
+        ),
+         'icon' => NULL,
+         'labelWidth' => 150,
+         'labelAlign' => 'left',
+      )),
+    ),
+     'locked' => false,
+     'blockedVarsForExport' => 
+    array (
+    ),
+     'icon' => NULL,
+     'labelWidth' => 100,
+     'labelAlign' => 'left',
+  )),
+   'icon' => '/bundles/pimcoreadmin/img/flat-color-icons/vip.svg',
+   'previewUrl' => '',
+   'group' => 'E-Commerce',
+   'showAppLoggerTab' => false,
+   'linkGeneratorReference' => '',
+   'previewGeneratorReference' => NULL,
+   'compositeIndices' => 
+  array (
+  ),
+   'generateTypeDeclarations' => true,
+   'showFieldLookup' => false,
+   'propertyVisibility' => 
+  array (
+    'grid' => 
+    array (
+      'id' => true,
+      'key' => false,
+      'path' => true,
+      'published' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
+    ),
+    'search' => 
+    array (
+      'id' => true,
+      'key' => false,
+      'path' => true,
+      'published' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
+    ),
+  ),
+   'enableGridLocking' => false,
+   'dao' => NULL,
+   'blockedVarsForExport' => 
+  array (
+  ),
+));

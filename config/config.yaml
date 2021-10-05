@@ -12,6 +12,14 @@ pimcore:
 # ./bin/console debug:config pimcore assets
 # or even more specific:
 # ./bin/console debug:config pimcore assets.image
+    models:
+        class_overrides:
+            'Pimcore\Model\DataObject\User': 'App\Model\DataObject\User'
+
+    security:
+        factory_type: password_hasher
+        password_hasher_factories:
+            App\Model\DataObject\User: pimcoreskeleton.security.password_hasher_factory
 
 
 #### TRANSLATIONS

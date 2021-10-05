@@ -60,6 +60,15 @@ services:
         tags: [ 'console.command' ]
 
 
+    pimcoreskeleton.security.user_provider:
+        class: Pimcore\Security\User\ObjectUserProvider
+        arguments: ['App\Model\DataObject\User', 'username']
+
+    pimcoreskeleton.security.password_hasher_factory:
+        class: Pimcore\Security\Hasher\Factory\UserAwarePasswordHasherFactory
+        arguments:
+            - Pimcore\Security\Hasher\PasswordFieldHasher
+            - [ 'password' ]
 
     # Example custom templating helper
     # App\Templating\Helper\Example:

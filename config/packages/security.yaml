@@ -2,6 +2,8 @@ security:
     providers:
         pimcore_admin:
             id: Pimcore\Bundle\AdminBundle\Security\User\UserProvider
+        pimcore_skeleton_provider:
+            id: pimcoreskeleton.security.user_provider
 
     firewalls:
         dev:
@@ -38,6 +40,12 @@ security:
                 auth_code_parameter_name: _auth_code   # Name of the parameter for the two-factor authentication code
                 trusted_parameter_name: _trusted       # Name of the parameter for the trusted device option
                 multi_factor: false                    # If ALL active two-factor methods need to be fulfilled (multi-factor authentication)
+
+        pimcore_skeleton_fw:
+            # the provider defined above
+            pattern: ^/test
+            provider: pimcore_skeleton_provider
+            http_basic: ~
 
 
     access_control:

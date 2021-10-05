@@ -58,9 +58,6 @@ services:
     App\Command\:
         resource: '../src/Command/*'
         tags: [ 'console.command' ]
-
-
-
     # Example custom templating helper
     # App\Templating\Helper\Example:
     #     # templating helpers need to be public as they

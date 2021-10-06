@@ -1,4 +1,5 @@
 security:
+    enable_authenticator_manager: true
     providers:
         pimcore_admin:
             id: Pimcore\Bundle\AdminBundle\Security\User\UserProvider
@@ -18,7 +19,7 @@ security:
 
         # Pimcore admin form login // DO NOT CHANGE!
         pimcore_admin:
-            anonymous: ~
+#            anonymous: ~
             pattern: ^/admin(/.*)?$
             # admin firewall is stateless as we open the admin
             # session on demand for non-blocking parallel requests
@@ -28,8 +29,9 @@ security:
                 path:   /admin/logout
                 target: /admin/login
                 success_handler: Pimcore\Bundle\AdminBundle\Security\LogoutSuccessHandler
+            entry_point: Pimcore\Bundle\AdminBundle\Security\Guard\AdminAuthenticator
             guard:
-                entry_point: Pimcore\Bundle\AdminBundle\Security\Guard\AdminAuthenticator
+#                entry_point: Pimcore\Bundle\AdminBundle\Security\Guard\AdminAuthenticator
                 authenticators:
                     - Pimcore\Bundle\AdminBundle\Security\Guard\AdminAuthenticator
             two_factor:
@@ -43,13 +45,24 @@ security:
 
         pimcore_skeleton_fw:
             # the provider defined above
-            pattern: ^/test
+            pattern: ^/
             provider: pimcore_skeleton_provider
-            http_basic: ~
+
+            form_login:
+                login_path: app_login
+                check_path: app_login
+                default_target_path: test_customer
+
+            logout:
+                path: app_logout
+
+            entry_point: form_login
 
 
     access_control:
         # Pimcore admin ACl  // DO NOT CHANGE!
+        - { path: ^/admin/login, roles: PUBLIC_ACCESS }
+        - { path: ^/login, roles: PUBLIC_ACCESS }
         - { path: ^/admin/settings/display-custom-logo, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/login/2fa-verify, roles: IS_AUTHENTICATED_2FA_IN_PROGRESS}
         - { path: ^/admin/login/2fa, roles: IS_AUTHENTICATED_2FA_IN_PROGRESS}

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use CustomerManagementFrameworkBundle\CustomerProvider\CustomerProviderInterface;
 use Pimcore\Controller\FrontendController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,6 +29,9 @@ class DefaultController extends FrontendController
      */
     public function test()
     {
+        xdebug_break();
+        $u = $this->getUser();
+        $s = $this->denyAccessUnlessGranted("ROLE_USER");
         return new Response('done');
     }
 }

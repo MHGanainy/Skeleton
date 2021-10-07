@@ -26,13 +26,23 @@ class DefaultController extends FrontendController
     /**
      * @Route("/test",name="test_customer")
      */
-    public function test(CustomerProviderInterface $customerProvider)
+    public function test()
+    {
+        return new Response('done');
+    }
+
+    /**
+     * @Route("/cu",name="cu")
+     */
+    public function cu(CustomerProviderInterface $customerProvider)
     {
         $newCustomer = $customerProvider->create([
             'firstname' => 'john',
             'lastname' => 'doe',
             'email' => 'a@a.com',
-            'active' => true
+            'active' => true,
+            'password' => '12345',
+            'roles' => ["ROLE_USER"]
         ]);
 
         $newCustomer->save();

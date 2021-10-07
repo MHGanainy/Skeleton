@@ -2,6 +2,8 @@ security:
     providers:
         pimcore_admin:
             id: Pimcore\Bundle\AdminBundle\Security\User\UserProvider
+        cmf_customer_provider:
+            id: cmf.security.user_provider
 
     firewalls:
         dev:
@@ -39,6 +41,17 @@ security:
                 trusted_parameter_name: _trusted       # Name of the parameter for the trusted device option
                 multi_factor: false                    # If ALL active two-factor methods need to be fulfilled (multi-factor authentication)
 
+        main:
+            anonymous: ~
+            pattern: ^/
+            provider: cmf_customer_provider
+            form_login:
+                login_path: login
+                check_path: login
+                default_target_path: test_customer
+                csrf_token_generator: security.csrf.token_manager
+            logout:
+                path: logout
 
     access_control:
         # Pimcore admin ACl  // DO NOT CHANGE!
@@ -48,6 +61,9 @@ security:
         - { path: ^/admin/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/login/(login|lostpassword|deeplink|csrf-token)$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin, roles: ROLE_PIMCORE_USER }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: ROLE_USER }
 
     role_hierarchy:
         # Pimcore admin  // DO NOT CHANGE!
